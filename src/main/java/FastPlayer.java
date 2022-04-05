@@ -11,7 +11,7 @@ public class FastPlayer implements Movable {
 
     @Override
     public int getSpeed() {
-        startSpeed = startSpeed + speedStep;
+        startSpeed = this.startSpeed + speedStep;
         return startSpeed;
     }
 }
