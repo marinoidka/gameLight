@@ -331,7 +331,7 @@ public class GameTest {
     @Test
     public void shouldWorkSpeedyGame() {
         SpeedyGame speedyGame = new SpeedyGame(7, false);
-        GameManager player = new GameManager(speedyGame.maxSpeed, speedyGame.isGreenLight, speedyGame);
+        GameManager player = new GameManager(speedyGame);
 
         int[] playerSpeeds = {0, 0, 0, 6, 7, 0, 2};
 
@@ -345,7 +345,7 @@ public class GameTest {
     @Test
     public void shouldWorkSpeedyGameBorders() {
         SpeedyGame speedyGame = new SpeedyGame(7, false);
-        GameManager player = new GameManager(speedyGame.maxSpeed, speedyGame.isGreenLight, speedyGame);
+        GameManager player = new GameManager(speedyGame);
 
         int[] playerSpeeds = {7, 7, 8, 6, 7, 0, 9};
 
@@ -359,7 +359,7 @@ public class GameTest {
     @Test
     public void shouldWorkSpeedyGameSpeedZero() {
         SpeedyGame speedyGame = new SpeedyGame(0, false);
-        GameManager player = new GameManager(speedyGame.maxSpeed, speedyGame.isGreenLight, speedyGame);
+        GameManager player = new GameManager(speedyGame);
 
         int[] playerSpeeds = {7, 7, 8, 6, 7, 0, 9};
 
@@ -373,7 +373,7 @@ public class GameTest {
     @Test
     public void shouldWorkSpeedyGameOneSpeed() {
         SpeedyGame speedyGame = new SpeedyGame(7, false);
-        GameManager player = new GameManager(speedyGame.maxSpeed, speedyGame.isGreenLight, speedyGame);
+        GameManager player = new GameManager(speedyGame);
 
         int[] playerSpeeds = {7};
 
@@ -387,7 +387,7 @@ public class GameTest {
     @Test
     public void shouldWorkSpeedyGameLightTrue() {
         SpeedyGame speedyGame = new SpeedyGame(7, true);
-        GameManager player = new GameManager(speedyGame.maxSpeed, speedyGame.isGreenLight, speedyGame);
+        GameManager player = new GameManager(speedyGame);
 
         int[] playerSpeeds = {7, 7, 8, 6, 7, 0, 9};
 
@@ -401,7 +401,7 @@ public class GameTest {
     @Test
     public void shouldWorkGame() {
         Game game = new Game(false);
-        GameManager player = new GameManager(0, game.isGreenLight, game);
+        GameManager player = new GameManager(game);
 
         int[] playerSpeeds = {0, 0, 0, 6, 7, 0, 2};
 
@@ -415,7 +415,7 @@ public class GameTest {
     @Test
     public void shouldWorkGameBorders() {
         Game game = new Game(false);
-        GameManager player = new GameManager(0, game.isGreenLight, game);
+        GameManager player = new GameManager(game);
 
         int[] playerSpeeds = {0, 1, 0, 1, 2, 0, 2};
 
@@ -429,7 +429,7 @@ public class GameTest {
     @Test
     public void shouldWorkGameOneSpeed() {
         Game game = new Game(false);
-        GameManager player = new GameManager(0, game.isGreenLight, game);
+        GameManager player = new GameManager(game);
 
         int[] playerSpeeds = {1};
 
@@ -443,7 +443,7 @@ public class GameTest {
     @Test
     public void shouldWorkGameLightTrue() {
         Game game = new Game(true);
-        GameManager player = new GameManager(0, game.isGreenLight, game);
+        GameManager player = new GameManager(game);
 
         int[] playerSpeeds = {0, 1, 0, 1, 2, 0, 2};
 
@@ -459,7 +459,8 @@ public class GameTest {
         Movable p1 = new FastPlayer(1, 1);
         Movable p2 = new ConstantPlayer();
         Game game = new Game(false);
-        GameManager gameManager = new GameManager(7, game.isGreenLight, game);
+        game.setMaxSpeed(7);
+        GameManager gameManager = new GameManager(game);
 
         int expected = -1;
 
@@ -473,7 +474,8 @@ public class GameTest {
         Movable p1 = new FastPlayer(1, 1);
         Movable p2 = new ConstantPlayer();
         Game game = new Game(false);
-        GameManager gameManager = new GameManager(5, game.isGreenLight, game);
+        game.setMaxSpeed(5);
+        GameManager gameManager = new GameManager(game);
 
         int expected = 1;
 
@@ -487,7 +489,7 @@ public class GameTest {
         Movable p1 = new FastPlayer(1, 1);
         Movable p2 = new ConstantPlayer();
         Game game = new Game(false);
-        GameManager gameManager = new GameManager(6, game.isGreenLight, game);
+        GameManager gameManager = new GameManager(game);
 
         int expected = 0;
 

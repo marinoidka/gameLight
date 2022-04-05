@@ -8,7 +8,7 @@ public class SpeedyGame extends Game {
         this.maxSpeed = maxSpeed;
     }
 
-    public boolean getLight () {
+    public boolean getLight() {
         return isGreenLight;
     }
 
@@ -18,7 +18,7 @@ public class SpeedyGame extends Game {
 
     @Override
     public boolean isFailed(int speed, boolean isGreenLight) {
-        if(!isGreenLight) {
+        if (!isGreenLight) {
             return speed > maxSpeed;
         } else return false;
     }

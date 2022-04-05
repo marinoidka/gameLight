@@ -21,8 +21,9 @@ public class Main {
 
         Game game1 = new Game(game.isGreenLight);
 
-        game1.setLight(true);
-        GameManager player1 = new GameManager(0, false, game1);
+        game1.setLight(false);
+        game1.setMaxSpeed(0);
+        GameManager player1 = new GameManager(game1);
         player1.getRounds(playerSpeeds);
 
         FastPlayer player = new FastPlayer(10, 5);
@@ -47,7 +48,7 @@ public class Main {
 
         Movable p1 = new FastPlayer(1, 1);
         Movable p2 = new ConstantPlayer();
-        GameManager manager = new GameManager(7, false, game);
+        GameManager manager = new GameManager(game);
 
         System.out.println("Метод loser возвращает: " + manager.loser(p1, p2, 10));
 
